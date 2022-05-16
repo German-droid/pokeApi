@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19574" systemVersion="20G165" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Base_Stats" representedClassName="Base_Stats" syncable="YES" codeGenerationType="class">
+        <attribute name="attack" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="defense" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="hp" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="specialAttack" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="specialDefense" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="speed" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="statsOf" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DetailedPokemons" inverseName="stats" inverseEntity="DetailedPokemons"/>
+    </entity>
+    <entity name="DetailedMovements" representedClassName="DetailedMovements" syncable="YES" codeGenerationType="class">
+        <attribute name="accuracy" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="damageClass" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="power" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="pp" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="type" optional="YES" attributeType="String"/>
+        <relationship name="toPokemon" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="DetailedPokemons" inverseName="movements" inverseEntity="DetailedPokemons"/>
+    </entity>
+    <entity name="DetailedPokemons" representedClassName="DetailedPokemons" syncable="YES" codeGenerationType="class">
+        <attribute name="detailedSprite" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES"/>
+        <attribute name="height" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="sprite" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES"/>
+        <attribute name="weight" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <relationship name="movements" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="DetailedMovements" inverseName="toPokemon" inverseEntity="DetailedMovements"/>
+        <relationship name="species" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SpeciesPokemons" inverseName="toDetailed" inverseEntity="SpeciesPokemons"/>
+        <relationship name="stats" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Base_Stats" inverseName="statsOf" inverseEntity="Base_Stats"/>
+        <relationship name="types" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Types" inverseName="typesOf" inverseEntity="Types"/>
+    </entity>
+    <entity name="SpeciesPokemons" representedClassName="SpeciesPokemons" syncable="YES" codeGenerationType="class">
+        <attribute name="captureRatio" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="entry" optional="YES" attributeType="String"/>
+        <attribute name="specie" optional="YES" attributeType="String"/>
+        <relationship name="toDetailed" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DetailedPokemons" inverseName="species" inverseEntity="DetailedPokemons"/>
+    </entity>
+    <entity name="Types" representedClassName="Types" syncable="YES" codeGenerationType="class">
+        <attribute name="name" optional="YES" attributeType="String" defaultValueString=""/>
+        <attribute name="slot" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="typesOf" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="DetailedPokemons" inverseName="types" inverseEntity="DetailedPokemons"/>
+    </entity>
+    <elements>
+        <element name="Base_Stats" positionX="189.2047119140625" positionY="-90.23104858398436" width="128" height="148"/>
+        <element name="DetailedPokemons" positionX="-36.80303955078125" positionY="-32.6619873046875" width="128" height="193"/>
+        <element name="SpeciesPokemons" positionX="-276.2650756835937" positionY="27.22627258300781" width="128" height="103"/>
+        <element name="Types" positionX="187.822509765625" positionY="71.77197265625" width="128" height="88"/>
+        <element name="DetailedMovements" positionX="-274.9096069335938" positionY="-134.4126586914062" width="128" height="148"/>
+    </elements>
+</model>

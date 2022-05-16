@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="pokemon_pixel_font.ttf">
+            <string>Pokemon-Pixel-Font</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MyCustomCell" rowHeight="110" id="KGk-i7-Jjw" customClass="MyCustomCell" customModule="pokeApi" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="433" height="110"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="433" height="110"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" alpha="0.050000000000000003" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#001" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="gY8-DV-7kX">
+                        <rect key="frame" x="0.0" y="0.0" width="433" height="110"/>
+                        <fontDescription key="fontDescription" name="Pokemon-Pixel-Font" family="Pokemon Pixel Font" pointSize="75"/>
+                        <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="N39-sx-N3A">
+                        <rect key="frame" x="10" y="5" width="423" height="100"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ez4-bj-ar7">
+                                <rect key="frame" x="0.0" y="0.0" width="313" height="100"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="Jue-23-ryF">
+                                        <rect key="frame" x="0.0" y="0.0" width="313" height="100"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="44o-bD-l4E">
+                                                <rect key="frame" x="0.0" y="0.0" width="313" height="55"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dragonite" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a7K-ai-GmL">
+                                                        <rect key="frame" x="0.0" y="0.0" width="141" height="55"/>
+                                                        <fontDescription key="fontDescription" name="Pokemon-Pixel-Font" family="Pokemon Pixel Font" pointSize="45"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="a7K-ai-GmL" firstAttribute="leading" secondItem="44o-bD-l4E" secondAttribute="leading" id="AIn-1x-83L"/>
+                                                    <constraint firstItem="a7K-ai-GmL" firstAttribute="top" secondItem="44o-bD-l4E" secondAttribute="top" id="g0v-ol-esP"/>
+                                                    <constraint firstAttribute="height" constant="55" id="qfx-r7-XoM"/>
+                                                    <constraint firstAttribute="bottom" secondItem="a7K-ai-GmL" secondAttribute="bottom" id="vuM-WC-neB"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qc1-y4-z4e">
+                                                <rect key="frame" x="0.0" y="55" width="151" height="45"/>
+                                                <subviews>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="top" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="oMI-t8-W4v">
+                                                        <rect key="frame" x="0.0" y="0.0" width="151" height="45"/>
+                                                        <subviews>
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Tipo_ice" translatesAutoresizingMaskIntoConstraints="NO" id="sRc-h6-Lry">
+                                                                <rect key="frame" x="0.0" y="0.0" width="75" height="16"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="75" id="RbJ-zI-nJh"/>
+                                                                    <constraint firstAttribute="height" constant="16" id="ltJ-no-bdq"/>
+                                                                </constraints>
+                                                            </imageView>
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Tipo_ground" translatesAutoresizingMaskIntoConstraints="NO" id="Jpt-uv-m3T">
+                                                                <rect key="frame" x="76" y="0.0" width="75" height="16"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="16" id="brr-fF-uCh"/>
+                                                                    <constraint firstAttribute="width" constant="75" id="zCe-Aj-Hnm"/>
+                                                                </constraints>
+                                                            </imageView>
+                                                        </subviews>
+                                                    </stackView>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstAttribute="trailing" secondItem="oMI-t8-W4v" secondAttribute="trailing" id="Byo-A2-kM8"/>
+                                                    <constraint firstAttribute="bottom" secondItem="oMI-t8-W4v" secondAttribute="bottom" id="IMT-vJ-bPw"/>
+                                                    <constraint firstItem="oMI-t8-W4v" firstAttribute="leading" secondItem="Qc1-y4-z4e" secondAttribute="leading" id="MfY-Rb-i4p"/>
+                                                    <constraint firstAttribute="height" constant="45" id="W7T-44-LkN"/>
+                                                    <constraint firstItem="oMI-t8-W4v" firstAttribute="top" secondItem="Qc1-y4-z4e" secondAttribute="top" id="sQO-Lr-2ii"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="Jue-23-ryF" firstAttribute="leading" secondItem="Ez4-bj-ar7" secondAttribute="leading" id="7Gy-Gc-Cru"/>
+                                    <constraint firstAttribute="bottom" secondItem="Jue-23-ryF" secondAttribute="bottom" id="fN2-Z1-IlK"/>
+                                    <constraint firstItem="Jue-23-ryF" firstAttribute="top" secondItem="Ez4-bj-ar7" secondAttribute="top" id="jGU-Oh-AKf"/>
+                                    <constraint firstAttribute="trailing" secondItem="Jue-23-ryF" secondAttribute="trailing" id="wR4-kL-Gd2"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0NS-ru-rF4">
+                                <rect key="frame" x="323" y="0.0" width="100" height="100"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="5" translatesAutoresizingMaskIntoConstraints="NO" id="wv5-EO-WEf">
+                                        <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                    </imageView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="wv5-EO-WEf" firstAttribute="leading" secondItem="0NS-ru-rF4" secondAttribute="leading" id="7ye-hA-zRk"/>
+                                    <constraint firstAttribute="trailing" secondItem="wv5-EO-WEf" secondAttribute="trailing" id="Q4v-nI-0xL"/>
+                                    <constraint firstAttribute="height" constant="100" id="YsH-W1-75u"/>
+                                    <constraint firstAttribute="bottom" secondItem="wv5-EO-WEf" secondAttribute="bottom" id="cRE-L6-fTn"/>
+                                    <constraint firstItem="wv5-EO-WEf" firstAttribute="top" secondItem="0NS-ru-rF4" secondAttribute="top" id="fa5-SR-weQ"/>
+                                    <constraint firstAttribute="width" constant="100" id="nej-lE-3Qc"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                    </stackView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="gY8-DV-7kX" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="2aw-ho-RnI"/>
+                    <constraint firstItem="N39-sx-N3A" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="E1V-h9-dnC"/>
+                    <constraint firstAttribute="trailing" secondItem="gY8-DV-7kX" secondAttribute="trailing" id="HqA-fy-Zuq"/>
+                    <constraint firstItem="N39-sx-N3A" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="MgA-O9-pkI"/>
+                    <constraint firstItem="gY8-DV-7kX" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="gEu-ff-bNU"/>
+                    <constraint firstAttribute="bottom" secondItem="N39-sx-N3A" secondAttribute="bottom" constant="5" id="iBd-ZW-8ve"/>
+                    <constraint firstAttribute="trailing" secondItem="N39-sx-N3A" secondAttribute="trailing" id="jNl-Sm-5YF"/>
+                    <constraint firstAttribute="bottom" secondItem="gY8-DV-7kX" secondAttribute="bottom" id="jtA-r6-khm"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="firstTypeImage" destination="sRc-h6-Lry" id="qPt-t5-csp"/>
+                <outlet property="pokemonImage" destination="wv5-EO-WEf" id="vVI-dr-3jD"/>
+                <outlet property="pokemonIndex" destination="gY8-DV-7kX" id="HJD-F6-PFg"/>
+                <outlet property="pokemonName" destination="a7K-ai-GmL" id="fND-up-t4x"/>
+                <outlet property="secondTypeImage" destination="Jpt-uv-m3T" id="OWA-OY-qy4"/>
+            </connections>
+            <point key="canvasLocation" x="290.57971014492756" y="117.1875"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="5" width="96" height="96"/>
+        <image name="Tipo_ground" width="200" height="44"/>
+        <image name="Tipo_ice" width="200" height="44"/>
+    </resources>
+</document>

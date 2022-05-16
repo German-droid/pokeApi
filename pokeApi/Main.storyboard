@@ -1,0 +1,740 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="puzle_tale-pixel-negrita.ttf">
+            <string>Puzzle-Tale-Pixel-BG</string>
+        </array>
+        <array key="puzle_tale-pixel.ttf">
+            <string>Puzzle-Tale-Pixel</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--DetailPokemon-->
+        <scene sceneID="f6X-6x-dkX">
+            <objects>
+                <viewController storyboardIdentifier="pokemonVC" title="DetailPokemon" id="dPu-43-nt1" customClass="PokemonVC" customModule="pokeApi" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="T6n-0Z-8Ej">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="2000"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="coK-Jn-fsA">
+                                <rect key="frame" x="0.0" y="44" width="414" height="1956"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cEs-Av-QhJ">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1611"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="hq2-GB-CQW">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="1611"/>
+                                                <subviews>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FWY-Ox-kfe">
+                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="70"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Charmander" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="cvB-Vo-6gS">
+                                                                <rect key="frame" x="50" y="0.0" width="314" height="70"/>
+                                                                <accessibility key="accessibilityConfiguration">
+                                                                    <accessibilityTraits key="traits" none="YES"/>
+                                                                </accessibility>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="70" id="gkq-QR-7yl"/>
+                                                                </constraints>
+                                                                <fontDescription key="fontDescription" name="Puzzle-Tale-Pixel" family="Puzzle Tale Pixel" pointSize="80"/>
+                                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                                <nil key="highlightedColor"/>
+                                                                <color key="shadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <size key="shadowOffset" width="4" height="2"/>
+                                                            </label>
+                                                        </subviews>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="trailing" secondItem="cvB-Vo-6gS" secondAttribute="trailing" constant="50" id="DfH-2z-t23"/>
+                                                            <constraint firstAttribute="height" constant="70" id="ICY-aX-l5k"/>
+                                                            <constraint firstItem="cvB-Vo-6gS" firstAttribute="leading" secondItem="FWY-Ox-kfe" secondAttribute="leading" constant="50" id="JUv-tp-h9e"/>
+                                                            <constraint firstItem="cvB-Vo-6gS" firstAttribute="top" secondItem="FWY-Ox-kfe" secondAttribute="top" id="iyq-N0-TIa"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fRK-dI-BI0">
+                                                        <rect key="frame" x="0.0" y="70" width="414" height="300"/>
+                                                        <subviews>
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bulbasaur" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WH3-ug-UoG">
+                                                                <rect key="frame" x="50" y="0.0" width="314" height="300"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="300" id="dUW-2j-iPv"/>
+                                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="300" id="hyq-pJ-RiC"/>
+                                                                </constraints>
+                                                            </imageView>
+                                                        </subviews>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <constraints>
+                                                            <constraint firstItem="WH3-ug-UoG" firstAttribute="top" secondItem="fRK-dI-BI0" secondAttribute="top" id="5HZ-ou-Y3o"/>
+                                                            <constraint firstItem="WH3-ug-UoG" firstAttribute="leading" secondItem="fRK-dI-BI0" secondAttribute="leading" constant="50" id="7IS-ts-VZb"/>
+                                                            <constraint firstAttribute="bottom" secondItem="WH3-ug-UoG" secondAttribute="bottom" id="B7c-A3-MCf"/>
+                                                            <constraint firstAttribute="height" constant="300" id="JbS-z7-nDy"/>
+                                                            <constraint firstItem="WH3-ug-UoG" firstAttribute="height" secondItem="fRK-dI-BI0" secondAttribute="height" id="SgB-Rx-Ai8"/>
+                                                            <constraint firstAttribute="trailing" secondItem="WH3-ug-UoG" secondAttribute="trailing" constant="50" id="ggg-0S-lzl"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lg3-CI-5vY">
+                                                        <rect key="frame" x="0.0" y="370" width="414" height="60"/>
+                                                        <subviews>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Dps-Xd-Wxd">
+                                                                <rect key="frame" x="0.0" y="20" width="414" height="40"/>
+                                                                <subviews>
+                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Tipo_bug" translatesAutoresizingMaskIntoConstraints="NO" id="gOs-ra-i2E">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="207" height="40"/>
+                                                                    </imageView>
+                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Tipo_steel" translatesAutoresizingMaskIntoConstraints="NO" id="h6m-P0-GYm">
+                                                                        <rect key="frame" x="207" y="0.0" width="207" height="40"/>
+                                                                    </imageView>
+                                                                </subviews>
+                                                            </stackView>
+                                                        </subviews>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="bottom" secondItem="Dps-Xd-Wxd" secondAttribute="bottom" id="4hh-9t-6vE"/>
+                                                            <constraint firstItem="Dps-Xd-Wxd" firstAttribute="top" secondItem="Lg3-CI-5vY" secondAttribute="top" constant="20" id="CKG-7p-crG"/>
+                                                            <constraint firstItem="Dps-Xd-Wxd" firstAttribute="leading" secondItem="Lg3-CI-5vY" secondAttribute="leading" id="bSv-Uw-QiN"/>
+                                                            <constraint firstAttribute="height" constant="60" id="qyw-1j-GFe"/>
+                                                            <constraint firstItem="Dps-Xd-Wxd" firstAttribute="width" secondItem="Lg3-CI-5vY" secondAttribute="width" id="rKY-xK-iSE"/>
+                                                            <constraint firstAttribute="trailing" secondItem="Dps-Xd-Wxd" secondAttribute="trailing" id="vxU-1B-ZlZ"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QiS-jQ-Wmm">
+                                                        <rect key="frame" x="0.0" y="430" width="414" height="200"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="FAE-KB-tbX">
+                                                                <rect key="frame" x="20" y="25" width="374" height="150"/>
+                                                                <string key="text">Venusaur tiene una flor enorme en el lomo que, según parece, adquiere unos colores muy vivos si está bien nutrido y le da mucho el sol. El aroma delicado de la flor tiene un efecto relajante en el ánimo de las personas.</string>
+                                                                <fontDescription key="fontDescription" name="Puzzle-Tale-Pixel" family="Puzzle Tale Pixel" pointSize="32"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <constraints>
+                                                            <constraint firstItem="FAE-KB-tbX" firstAttribute="leading" secondItem="QiS-jQ-Wmm" secondAttribute="leading" constant="20" id="Nt0-Ke-qSg"/>
+                                                            <constraint firstAttribute="trailing" secondItem="FAE-KB-tbX" secondAttribute="trailing" constant="20" id="St2-ut-5mn"/>
+                                                            <constraint firstAttribute="bottom" secondItem="FAE-KB-tbX" secondAttribute="bottom" constant="25" id="WeQ-5m-FFS"/>
+                                                            <constraint firstItem="FAE-KB-tbX" firstAttribute="top" secondItem="QiS-jQ-Wmm" secondAttribute="top" constant="25" id="kKu-sF-6eF"/>
+                                                            <constraint firstAttribute="height" constant="200" id="nFx-NR-SJb"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hxr-M5-QZJ">
+                                                        <rect key="frame" x="0.0" y="630" width="414" height="110"/>
+                                                        <subviews>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="W1r-a2-CfE">
+                                                                <rect key="frame" x="50" y="0.0" width="314" height="110"/>
+                                                                <subviews>
+                                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="3fO-ue-xGw">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="150" height="110"/>
+                                                                        <subviews>
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Especie" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="mEF-L1-9yU">
+                                                                                <rect key="frame" x="0.0" y="0.0" width="150" height="27.5"/>
+                                                                                <fontDescription key="fontDescription" name="Puzzle-Tale-Pixel" family="Puzzle Tale Pixel" pointSize="30"/>
+                                                                                <nil key="textColor"/>
+                                                                                <nil key="highlightedColor"/>
+                                                                                <color key="shadowColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                <size key="shadowOffset" width="1" height="0.0"/>
+                                                                            </label>
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Semilla" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pab-1F-Dwq">
+                                                                                <rect key="frame" x="0.0" y="27.5" width="150" height="27.5"/>
+                                                                                <fontDescription key="fontDescription" name="Puzzle-Tale-Pixel" family="Puzzle Tale Pixel" pointSize="25"/>
+                                                                                <nil key="textColor"/>
+                                                                                <nil key="highlightedColor"/>
+                                                                            </label>
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Peso" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="fsY-TT-CTy">
+                                                                                <rect key="frame" x="0.0" y="55" width="150" height="27.5"/>
+                                                                                <fontDescription key="fontDescription" name="Puzzle-Tale-Pixel" family="Puzzle Tale Pixel" pointSize="30"/>
+                                                                                <nil key="textColor"/>
+                                                                                <nil key="highlightedColor"/>
+                                                                                <color key="shadowColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                <size key="shadowOffset" width="1" height="0.0"/>
+                                                                            </label>
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="122.0 kg" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7jQ-91-yBo">
+                                                                                <rect key="frame" x="0.0" y="82.5" width="150" height="27.5"/>
+                                                                                <fontDescription key="fontDescription" name="Puzzle-Tale-Pixel" family="Puzzle Tale Pixel" pointSize="25"/>
+                                                                                <nil key="textColor"/>
+                                                                                <nil key="highlightedColor"/>
+                                                                            </label>
+                                                                        </subviews>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="width" constant="150" id="44P-p0-1pT"/>
+                                                                        </constraints>
+                                                                    </stackView>
+                                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Xms-mg-Btw">
+                                                                        <rect key="frame" x="164" y="0.0" width="150" height="110"/>
+                                                                        <subviews>
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ratio Captura" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="CrD-4o-IUh">
+                                                                                <rect key="frame" x="0.0" y="0.0" width="150" height="27.5"/>
+                                                                                <fontDescription key="fontDescription" name="Puzzle-Tale-Pixel" family="Puzzle Tale Pixel" pointSize="30"/>
+                                                                                <nil key="textColor"/>
+                                                                                <nil key="highlightedColor"/>
+                                                                                <color key="shadowColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                <size key="shadowOffset" width="1" height="0.0"/>
+                                                                            </label>
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3 %" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qz6-Pk-eal">
+                                                                                <rect key="frame" x="0.0" y="27.5" width="150" height="27.5"/>
+                                                                                <fontDescription key="fontDescription" name="Puzzle-Tale-Pixel" family="Puzzle Tale Pixel" pointSize="25"/>
+                                                                                <nil key="textColor"/>
+                                                                                <nil key="highlightedColor"/>
+                                                                            </label>
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Altura" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="d9e-KG-hUD">
+                                                                                <rect key="frame" x="0.0" y="55" width="150" height="27.5"/>
+                                                                                <fontDescription key="fontDescription" name="Puzzle-Tale-Pixel" family="Puzzle Tale Pixel" pointSize="30"/>
+                                                                                <nil key="textColor"/>
+                                                                                <nil key="highlightedColor"/>
+                                                                                <color key="shadowColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                <size key="shadowOffset" width="1" height="0.0"/>
+                                                                            </label>
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2.0 m" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kdH-sb-7Ov">
+                                                                                <rect key="frame" x="0.0" y="82.5" width="150" height="27.5"/>
+                                                                                <fontDescription key="fontDescription" name="Puzzle-Tale-Pixel" family="Puzzle Tale Pixel" pointSize="25"/>
+                                                                                <nil key="textColor"/>
+                                                                                <nil key="highlightedColor"/>
+                                                                            </label>
+                                                                        </subviews>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="width" constant="150" id="qDs-qx-lpy"/>
+                                                                        </constraints>
+                                                                    </stackView>
+                                                                </subviews>
+                                                            </stackView>
+                                                        </subviews>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="trailing" secondItem="W1r-a2-CfE" secondAttribute="trailing" constant="50" id="A0s-In-L57"/>
+                                                            <constraint firstAttribute="bottom" secondItem="W1r-a2-CfE" secondAttribute="bottom" id="IDP-pv-67V"/>
+                                                            <constraint firstAttribute="height" constant="110" id="Ord-gh-K1J"/>
+                                                            <constraint firstItem="W1r-a2-CfE" firstAttribute="top" secondItem="Hxr-M5-QZJ" secondAttribute="top" id="YXK-Ui-Khe"/>
+                                                            <constraint firstItem="W1r-a2-CfE" firstAttribute="leading" secondItem="Hxr-M5-QZJ" secondAttribute="leading" constant="50" id="lFu-W6-oe9"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZNN-zO-L1p">
+                                                        <rect key="frame" x="0.0" y="740" width="414" height="350"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Estadísticas base" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S7F-y3-z9B">
+                                                                <rect key="frame" x="20" y="20" width="374" height="40"/>
+                                                                <fontDescription key="fontDescription" name="Puzzle-Tale-Pixel-BG" family="Puzzle Tale Pixel BG" pointSize="35"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                                <color key="shadowColor" red="0.1282708347" green="0.16461813450000001" blue="0.1772539914" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <size key="shadowOffset" width="1" height="0.0"/>
+                                                            </label>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="YEo-e4-BMV">
+                                                                <rect key="frame" x="20" y="60" width="374" height="290"/>
+                                                                <subviews>
+                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zvL-qp-AwR">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="374" height="41.5"/>
+                                                                        <subviews>
+                                                                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="kYM-4Y-bcB">
+                                                                                <rect key="frame" x="0.0" y="0.0" width="374" height="41.5"/>
+                                                                                <subviews>
+                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HP" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="LbZ-r6-fXX">
+                                                                                        <rect key="frame" x="0.0" y="8" width="80" height="25"/>
+                                                                                        <constraints>
+                                                                                            <constraint firstAttribute="width" constant="80" id="dnr-3L-2lu"/>
+                                                                                            <constraint firstAttribute="height" constant="25" id="ndS-jc-UTd"/>
+                                                                                        </constraints>
+                                                                                        <fontDescription key="fontDescription" name="Puzzle-Tale-Pixel-BG" family="Puzzle Tale Pixel BG" pointSize="25"/>
+                                                                                        <nil key="textColor"/>
+                                                                                        <nil key="highlightedColor"/>
+                                                                                        <color key="shadowColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                        <size key="shadowOffset" width="1" height="0.0"/>
+                                                                                    </label>
+                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="123" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ruY-wc-Xji">
+                                                                                        <rect key="frame" x="80" y="8" width="40" height="25"/>
+                                                                                        <constraints>
+                                                                                            <constraint firstAttribute="height" constant="25" id="8Jx-yu-d8C"/>
+                                                                                            <constraint firstAttribute="width" constant="40" id="bDd-uT-fLG"/>
+                                                                                        </constraints>
+                                                                                        <fontDescription key="fontDescription" name="Puzzle-Tale-Pixel-BG" family="Puzzle Tale Pixel BG" pointSize="25"/>
+                                                                                        <nil key="textColor"/>
+                                                                                        <nil key="highlightedColor"/>
+                                                                                    </label>
+                                                                                    <progressView opaque="NO" userInteractionEnabled="NO" contentMode="center" verticalHuggingPriority="750" progressViewStyle="bar" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="ZF6-Dc-PZO">
+                                                                                        <rect key="frame" x="120" y="8" width="254" height="26"/>
+                                                                                        <constraints>
+                                                                                            <constraint firstAttribute="height" constant="25" id="c4n-o7-KKw"/>
+                                                                                        </constraints>
+                                                                                    </progressView>
+                                                                                </subviews>
+                                                                                <constraints>
+                                                                                    <constraint firstItem="ZF6-Dc-PZO" firstAttribute="leading" secondItem="ruY-wc-Xji" secondAttribute="trailing" id="BAd-6l-RmQ"/>
+                                                                                    <constraint firstAttribute="trailing" secondItem="ZF6-Dc-PZO" secondAttribute="trailing" id="dfT-Ud-M2A"/>
+                                                                                </constraints>
+                                                                            </stackView>
+                                                                        </subviews>
+                                                                        <constraints>
+                                                                            <constraint firstItem="kYM-4Y-bcB" firstAttribute="leading" secondItem="zvL-qp-AwR" secondAttribute="leading" id="2tS-ad-sIz"/>
+                                                                            <constraint firstItem="kYM-4Y-bcB" firstAttribute="top" secondItem="zvL-qp-AwR" secondAttribute="top" id="8Za-7t-Uzd"/>
+                                                                            <constraint firstAttribute="trailing" secondItem="kYM-4Y-bcB" secondAttribute="trailing" id="Af1-lm-Auh"/>
+                                                                            <constraint firstItem="kYM-4Y-bcB" firstAttribute="width" secondItem="zvL-qp-AwR" secondAttribute="width" id="Ddm-G4-WDL"/>
+                                                                            <constraint firstAttribute="bottom" secondItem="kYM-4Y-bcB" secondAttribute="bottom" id="Wrc-mD-BeC"/>
+                                                                        </constraints>
+                                                                    </view>
+                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lbW-tL-pao">
+                                                                        <rect key="frame" x="0.0" y="41.5" width="374" height="41.5"/>
+                                                                        <subviews>
+                                                                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="N0L-Zs-xdK">
+                                                                                <rect key="frame" x="0.0" y="0.0" width="374" height="41.5"/>
+                                                                                <subviews>
+                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ataque" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="kpH-0R-Sd7">
+                                                                                        <rect key="frame" x="0.0" y="8" width="80" height="25"/>
+                                                                                        <constraints>
+                                                                                            <constraint firstAttribute="width" constant="80" id="E8S-aI-THA"/>
+                                                                                            <constraint firstAttribute="height" constant="25" id="cPr-hX-PhX"/>
+                                                                                        </constraints>
+                                                                                        <fontDescription key="fontDescription" name="Puzzle-Tale-Pixel-BG" family="Puzzle Tale Pixel BG" pointSize="25"/>
+                                                                                        <nil key="textColor"/>
+                                                                                        <nil key="highlightedColor"/>
+                                                                                        <color key="shadowColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                        <size key="shadowOffset" width="1" height="0.0"/>
+                                                                                    </label>
+                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="123" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6iA-Y5-wfb">
+                                                                                        <rect key="frame" x="80" y="12" width="40" height="17.5"/>
+                                                                                        <constraints>
+                                                                                            <constraint firstAttribute="width" constant="40" id="sm1-pM-7be"/>
+                                                                                        </constraints>
+                                                                                        <fontDescription key="fontDescription" name="Puzzle-Tale-Pixel-BG" family="Puzzle Tale Pixel BG" pointSize="25"/>
+                                                                                        <nil key="textColor"/>
+                                                                                        <nil key="highlightedColor"/>
+                                                                                    </label>
+                                                                                    <progressView opaque="NO" userInteractionEnabled="NO" contentMode="center" verticalHuggingPriority="750" progressViewStyle="bar" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="sfP-59-DgN">
+                                                                                        <rect key="frame" x="120" y="8" width="254" height="26"/>
+                                                                                        <constraints>
+                                                                                            <constraint firstAttribute="height" constant="25" id="HED-cc-vlo"/>
+                                                                                        </constraints>
+                                                                                    </progressView>
+                                                                                </subviews>
+                                                                                <constraints>
+                                                                                    <constraint firstAttribute="trailing" secondItem="sfP-59-DgN" secondAttribute="trailing" id="FaI-IC-Hjv"/>
+                                                                                    <constraint firstItem="sfP-59-DgN" firstAttribute="leading" secondItem="6iA-Y5-wfb" secondAttribute="trailing" id="Z55-Kp-SNO"/>
+                                                                                </constraints>
+                                                                            </stackView>
+                                                                        </subviews>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="trailing" secondItem="N0L-Zs-xdK" secondAttribute="trailing" id="91c-7a-sr1"/>
+                                                                            <constraint firstAttribute="bottom" secondItem="N0L-Zs-xdK" secondAttribute="bottom" id="9Wt-Bb-r6k"/>
+                                                                            <constraint firstItem="N0L-Zs-xdK" firstAttribute="width" secondItem="lbW-tL-pao" secondAttribute="width" id="Xz4-3u-zED"/>
+                                                                            <constraint firstItem="N0L-Zs-xdK" firstAttribute="top" secondItem="lbW-tL-pao" secondAttribute="top" id="d27-6Q-PY7"/>
+                                                                            <constraint firstItem="N0L-Zs-xdK" firstAttribute="leading" secondItem="lbW-tL-pao" secondAttribute="leading" id="kHg-e0-w95"/>
+                                                                        </constraints>
+                                                                    </view>
+                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3qw-7w-aPa">
+                                                                        <rect key="frame" x="0.0" y="83" width="374" height="41.5"/>
+                                                                        <subviews>
+                                                                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="mhm-6T-8ZP">
+                                                                                <rect key="frame" x="0.0" y="0.0" width="374" height="41.5"/>
+                                                                                <subviews>
+                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Defensa" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="peq-Cf-BIU">
+                                                                                        <rect key="frame" x="0.0" y="12" width="80" height="17.5"/>
+                                                                                        <constraints>
+                                                                                            <constraint firstAttribute="width" constant="80" id="O67-eo-cTK"/>
+                                                                                        </constraints>
+                                                                                        <fontDescription key="fontDescription" name="Puzzle-Tale-Pixel-BG" family="Puzzle Tale Pixel BG" pointSize="25"/>
+                                                                                        <nil key="textColor"/>
+                                                                                        <nil key="highlightedColor"/>
+                                                                                        <color key="shadowColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                        <size key="shadowOffset" width="1" height="0.0"/>
+                                                                                    </label>
+                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="123" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lqb-P8-Kl6">
+                                                                                        <rect key="frame" x="80" y="12" width="40" height="17.5"/>
+                                                                                        <constraints>
+                                                                                            <constraint firstAttribute="width" constant="40" id="XOQ-r1-Upl"/>
+                                                                                        </constraints>
+                                                                                        <fontDescription key="fontDescription" name="Puzzle-Tale-Pixel-BG" family="Puzzle Tale Pixel BG" pointSize="25"/>
+                                                                                        <nil key="textColor"/>
+                                                                                        <nil key="highlightedColor"/>
+                                                                                    </label>
+                                                                                    <progressView opaque="NO" userInteractionEnabled="NO" contentMode="center" verticalHuggingPriority="750" progressViewStyle="bar" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="yD4-uX-y8O">
+                                                                                        <rect key="frame" x="120" y="8" width="254" height="26"/>
+                                                                                        <constraints>
+                                                                                            <constraint firstAttribute="height" constant="25" id="ZEe-BF-Mjm"/>
+                                                                                        </constraints>
+                                                                                    </progressView>
+                                                                                </subviews>
+                                                                                <constraints>
+                                                                                    <constraint firstItem="yD4-uX-y8O" firstAttribute="leading" secondItem="lqb-P8-Kl6" secondAttribute="trailing" id="bG4-hV-yD0"/>
+                                                                                    <constraint firstAttribute="trailing" secondItem="yD4-uX-y8O" secondAttribute="trailing" id="xCk-UP-tJ8"/>
+                                                                                </constraints>
+                                                                            </stackView>
+                                                                        </subviews>
+                                                                        <constraints>
+                                                                            <constraint firstItem="mhm-6T-8ZP" firstAttribute="width" secondItem="3qw-7w-aPa" secondAttribute="width" id="5jQ-qx-Ew0"/>
+                                                                            <constraint firstItem="mhm-6T-8ZP" firstAttribute="top" secondItem="3qw-7w-aPa" secondAttribute="top" id="Tbz-Cw-fky"/>
+                                                                            <constraint firstItem="mhm-6T-8ZP" firstAttribute="leading" secondItem="3qw-7w-aPa" secondAttribute="leading" id="Zkg-WC-6T7"/>
+                                                                            <constraint firstAttribute="trailing" secondItem="mhm-6T-8ZP" secondAttribute="trailing" id="eDz-Ar-p0Z"/>
+                                                                            <constraint firstAttribute="bottom" secondItem="mhm-6T-8ZP" secondAttribute="bottom" id="sIR-0w-ShU"/>
+                                                                        </constraints>
+                                                                    </view>
+                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JMq-7m-cgE">
+                                                                        <rect key="frame" x="0.0" y="124.5" width="374" height="41"/>
+                                                                        <subviews>
+                                                                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="9zF-ti-mUs">
+                                                                                <rect key="frame" x="0.0" y="0.0" width="374" height="41"/>
+                                                                                <subviews>
+                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ataque Esp." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="eLF-O2-oOM">
+                                                                                        <rect key="frame" x="0.0" y="12" width="80" height="17.5"/>
+                                                                                        <constraints>
+                                                                                            <constraint firstAttribute="width" constant="80" id="see-0c-5fW"/>
+                                                                                        </constraints>
+                                                                                        <fontDescription key="fontDescription" name="Puzzle-Tale-Pixel-BG" family="Puzzle Tale Pixel BG" pointSize="25"/>
+                                                                                        <nil key="textColor"/>
+                                                                                        <nil key="highlightedColor"/>
+                                                                                        <color key="shadowColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                        <size key="shadowOffset" width="1" height="0.0"/>
+                                                                                    </label>
+                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="123" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vzx-y0-Lu4">
+                                                                                        <rect key="frame" x="80" y="12" width="40" height="17.5"/>
+                                                                                        <constraints>
+                                                                                            <constraint firstAttribute="width" constant="40" id="7y4-Xb-YiN"/>
+                                                                                        </constraints>
+                                                                                        <fontDescription key="fontDescription" name="Puzzle-Tale-Pixel-BG" family="Puzzle Tale Pixel BG" pointSize="25"/>
+                                                                                        <nil key="textColor"/>
+                                                                                        <nil key="highlightedColor"/>
+                                                                                    </label>
+                                                                                    <progressView opaque="NO" userInteractionEnabled="NO" contentMode="center" verticalHuggingPriority="750" progressViewStyle="bar" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="05u-ir-BG2">
+                                                                                        <rect key="frame" x="120" y="8" width="254" height="26"/>
+                                                                                        <constraints>
+                                                                                            <constraint firstAttribute="height" constant="25" id="aET-gl-F3s"/>
+                                                                                        </constraints>
+                                                                                    </progressView>
+                                                                                </subviews>
+                                                                                <constraints>
+                                                                                    <constraint firstItem="05u-ir-BG2" firstAttribute="leading" secondItem="Vzx-y0-Lu4" secondAttribute="trailing" id="3E1-1g-iYc"/>
+                                                                                    <constraint firstAttribute="trailing" secondItem="05u-ir-BG2" secondAttribute="trailing" id="m7y-Uc-Et1"/>
+                                                                                </constraints>
+                                                                            </stackView>
+                                                                        </subviews>
+                                                                        <constraints>
+                                                                            <constraint firstItem="9zF-ti-mUs" firstAttribute="width" secondItem="JMq-7m-cgE" secondAttribute="width" id="0Yy-NT-mvE"/>
+                                                                            <constraint firstAttribute="trailing" secondItem="9zF-ti-mUs" secondAttribute="trailing" id="D1y-BC-vlX"/>
+                                                                            <constraint firstItem="9zF-ti-mUs" firstAttribute="top" secondItem="JMq-7m-cgE" secondAttribute="top" id="EyI-Od-Nu6"/>
+                                                                            <constraint firstItem="9zF-ti-mUs" firstAttribute="leading" secondItem="JMq-7m-cgE" secondAttribute="leading" id="leJ-AV-BlO"/>
+                                                                            <constraint firstAttribute="bottom" secondItem="9zF-ti-mUs" secondAttribute="bottom" id="zH2-YR-xL8"/>
+                                                                        </constraints>
+                                                                    </view>
+                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dqb-i1-x0v">
+                                                                        <rect key="frame" x="0.0" y="165.5" width="374" height="41.5"/>
+                                                                        <subviews>
+                                                                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Xxo-1C-3ae">
+                                                                                <rect key="frame" x="0.0" y="0.0" width="374" height="41.5"/>
+                                                                                <subviews>
+                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Defensa Esp." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="71b-bD-Q48">
+                                                                                        <rect key="frame" x="0.0" y="12" width="80" height="17.5"/>
+                                                                                        <constraints>
+                                                                                            <constraint firstAttribute="width" constant="80" id="x41-0E-XzZ"/>
+                                                                                        </constraints>
+                                                                                        <fontDescription key="fontDescription" name="Puzzle-Tale-Pixel-BG" family="Puzzle Tale Pixel BG" pointSize="25"/>
+                                                                                        <nil key="textColor"/>
+                                                                                        <nil key="highlightedColor"/>
+                                                                                        <color key="shadowColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                        <size key="shadowOffset" width="1" height="0.0"/>
+                                                                                    </label>
+                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="123" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qkh-L2-cgG">
+                                                                                        <rect key="frame" x="80" y="12" width="40" height="17.5"/>
+                                                                                        <constraints>
+                                                                                            <constraint firstAttribute="width" constant="40" id="CaZ-ag-mv1"/>
+                                                                                        </constraints>
+                                                                                        <fontDescription key="fontDescription" name="Puzzle-Tale-Pixel-BG" family="Puzzle Tale Pixel BG" pointSize="25"/>
+                                                                                        <nil key="textColor"/>
+                                                                                        <nil key="highlightedColor"/>
+                                                                                    </label>
+                                                                                    <progressView opaque="NO" userInteractionEnabled="NO" contentMode="center" verticalHuggingPriority="750" progressViewStyle="bar" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="dfS-ro-tOa">
+                                                                                        <rect key="frame" x="120" y="8.5" width="254" height="26"/>
+                                                                                        <constraints>
+                                                                                            <constraint firstAttribute="height" constant="25" id="w6i-6Q-lo3"/>
+                                                                                        </constraints>
+                                                                                    </progressView>
+                                                                                </subviews>
+                                                                                <constraints>
+                                                                                    <constraint firstAttribute="trailing" secondItem="dfS-ro-tOa" secondAttribute="trailing" id="Y3c-oB-cTi"/>
+                                                                                    <constraint firstItem="dfS-ro-tOa" firstAttribute="leading" secondItem="qkh-L2-cgG" secondAttribute="trailing" id="omn-qt-4ia"/>
+                                                                                </constraints>
+                                                                            </stackView>
+                                                                        </subviews>
+                                                                        <constraints>
+                                                                            <constraint firstItem="Xxo-1C-3ae" firstAttribute="top" secondItem="Dqb-i1-x0v" secondAttribute="top" id="7CG-89-bq3"/>
+                                                                            <constraint firstItem="Xxo-1C-3ae" firstAttribute="leading" secondItem="Dqb-i1-x0v" secondAttribute="leading" id="QSi-kZ-rcw"/>
+                                                                            <constraint firstAttribute="trailing" secondItem="Xxo-1C-3ae" secondAttribute="trailing" id="lIQ-t4-Avl"/>
+                                                                            <constraint firstItem="Xxo-1C-3ae" firstAttribute="width" secondItem="Dqb-i1-x0v" secondAttribute="width" id="nPk-Ca-WCb"/>
+                                                                            <constraint firstAttribute="bottom" secondItem="Xxo-1C-3ae" secondAttribute="bottom" id="sep-wF-5Oa"/>
+                                                                        </constraints>
+                                                                    </view>
+                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gzy-29-Dk8">
+                                                                        <rect key="frame" x="0.0" y="207" width="374" height="41.5"/>
+                                                                        <subviews>
+                                                                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="IVi-z5-gGS">
+                                                                                <rect key="frame" x="0.0" y="0.0" width="374" height="41.5"/>
+                                                                                <subviews>
+                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Velocidad" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="5wW-Ta-WQe">
+                                                                                        <rect key="frame" x="0.0" y="12" width="80" height="17.5"/>
+                                                                                        <constraints>
+                                                                                            <constraint firstAttribute="width" constant="80" id="PE4-gA-HiY"/>
+                                                                                        </constraints>
+                                                                                        <fontDescription key="fontDescription" name="Puzzle-Tale-Pixel-BG" family="Puzzle Tale Pixel BG" pointSize="25"/>
+                                                                                        <nil key="textColor"/>
+                                                                                        <nil key="highlightedColor"/>
+                                                                                        <color key="shadowColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                        <size key="shadowOffset" width="1" height="0.0"/>
+                                                                                    </label>
+                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="123" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b3J-Wo-tVp">
+                                                                                        <rect key="frame" x="80" y="12" width="40" height="17.5"/>
+                                                                                        <constraints>
+                                                                                            <constraint firstAttribute="width" constant="40" id="gIc-ZU-Nzm"/>
+                                                                                        </constraints>
+                                                                                        <fontDescription key="fontDescription" name="Puzzle-Tale-Pixel-BG" family="Puzzle Tale Pixel BG" pointSize="25"/>
+                                                                                        <nil key="textColor"/>
+                                                                                        <nil key="highlightedColor"/>
+                                                                                    </label>
+                                                                                    <progressView opaque="NO" userInteractionEnabled="NO" contentMode="center" verticalHuggingPriority="750" progressViewStyle="bar" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="wiE-8Z-wHL">
+                                                                                        <rect key="frame" x="120" y="8.5" width="254" height="26"/>
+                                                                                        <constraints>
+                                                                                            <constraint firstAttribute="height" constant="25" id="0h0-7k-YoK"/>
+                                                                                        </constraints>
+                                                                                    </progressView>
+                                                                                </subviews>
+                                                                                <constraints>
+                                                                                    <constraint firstAttribute="trailing" secondItem="wiE-8Z-wHL" secondAttribute="trailing" id="1y5-Zx-Obs"/>
+                                                                                    <constraint firstItem="wiE-8Z-wHL" firstAttribute="leading" secondItem="b3J-Wo-tVp" secondAttribute="trailing" id="VXW-Z9-H9d"/>
+                                                                                </constraints>
+                                                                            </stackView>
+                                                                        </subviews>
+                                                                        <constraints>
+                                                                            <constraint firstItem="IVi-z5-gGS" firstAttribute="width" secondItem="Gzy-29-Dk8" secondAttribute="width" id="54a-pM-0xf"/>
+                                                                            <constraint firstAttribute="trailing" secondItem="IVi-z5-gGS" secondAttribute="trailing" id="Sdp-Oc-gJ1"/>
+                                                                            <constraint firstItem="IVi-z5-gGS" firstAttribute="top" secondItem="Gzy-29-Dk8" secondAttribute="top" id="Xek-Ub-pNS"/>
+                                                                            <constraint firstItem="IVi-z5-gGS" firstAttribute="leading" secondItem="Gzy-29-Dk8" secondAttribute="leading" id="dji-uC-cOz"/>
+                                                                            <constraint firstAttribute="bottom" secondItem="IVi-z5-gGS" secondAttribute="bottom" id="fC2-jl-ay1"/>
+                                                                        </constraints>
+                                                                    </view>
+                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ldg-dl-Ibl">
+                                                                        <rect key="frame" x="0.0" y="248.5" width="374" height="41.5"/>
+                                                                        <subviews>
+                                                                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Yb5-n9-6cA">
+                                                                                <rect key="frame" x="0.0" y="0.0" width="374" height="41.5"/>
+                                                                                <subviews>
+                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="982-CC-hK0">
+                                                                                        <rect key="frame" x="0.0" y="12" width="80" height="17.5"/>
+                                                                                        <constraints>
+                                                                                            <constraint firstAttribute="width" constant="80" id="gov-CP-SzG"/>
+                                                                                        </constraints>
+                                                                                        <fontDescription key="fontDescription" name="Puzzle-Tale-Pixel-BG" family="Puzzle Tale Pixel BG" pointSize="25"/>
+                                                                                        <nil key="textColor"/>
+                                                                                        <nil key="highlightedColor"/>
+                                                                                        <color key="shadowColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                        <size key="shadowOffset" width="1" height="0.0"/>
+                                                                                    </label>
+                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="123" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PCn-ot-90U">
+                                                                                        <rect key="frame" x="80" y="12" width="40" height="17.5"/>
+                                                                                        <constraints>
+                                                                                            <constraint firstAttribute="width" constant="40" id="WSO-Fr-P8Z"/>
+                                                                                        </constraints>
+                                                                                        <fontDescription key="fontDescription" name="Puzzle-Tale-Pixel-BG" family="Puzzle Tale Pixel BG" pointSize="25"/>
+                                                                                        <nil key="textColor"/>
+                                                                                        <nil key="highlightedColor"/>
+                                                                                    </label>
+                                                                                    <progressView opaque="NO" userInteractionEnabled="NO" contentMode="center" verticalHuggingPriority="750" progressViewStyle="bar" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Ouu-AH-qiq">
+                                                                                        <rect key="frame" x="120" y="8.5" width="254" height="26"/>
+                                                                                        <constraints>
+                                                                                            <constraint firstAttribute="height" constant="25" id="H6q-Jq-dBH"/>
+                                                                                        </constraints>
+                                                                                    </progressView>
+                                                                                </subviews>
+                                                                                <constraints>
+                                                                                    <constraint firstAttribute="trailing" secondItem="Ouu-AH-qiq" secondAttribute="trailing" id="UEz-oP-Tto"/>
+                                                                                    <constraint firstItem="Ouu-AH-qiq" firstAttribute="leading" secondItem="PCn-ot-90U" secondAttribute="trailing" id="kPO-CI-IUS"/>
+                                                                                </constraints>
+                                                                            </stackView>
+                                                                        </subviews>
+                                                                        <constraints>
+                                                                            <constraint firstItem="Yb5-n9-6cA" firstAttribute="top" secondItem="ldg-dl-Ibl" secondAttribute="top" id="64M-ge-ixq"/>
+                                                                            <constraint firstItem="Yb5-n9-6cA" firstAttribute="leading" secondItem="ldg-dl-Ibl" secondAttribute="leading" id="PdN-X3-0kG"/>
+                                                                            <constraint firstItem="Yb5-n9-6cA" firstAttribute="width" secondItem="ldg-dl-Ibl" secondAttribute="width" id="frK-hU-Jbv"/>
+                                                                            <constraint firstAttribute="trailing" secondItem="Yb5-n9-6cA" secondAttribute="trailing" id="isd-hb-lfD"/>
+                                                                            <constraint firstAttribute="bottom" secondItem="Yb5-n9-6cA" secondAttribute="bottom" id="nOj-nV-QSu"/>
+                                                                        </constraints>
+                                                                    </view>
+                                                                </subviews>
+                                                            </stackView>
+                                                        </subviews>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <constraints>
+                                                            <constraint firstItem="YEo-e4-BMV" firstAttribute="leading" secondItem="ZNN-zO-L1p" secondAttribute="leading" constant="20" id="2fI-Jw-pZ4"/>
+                                                            <constraint firstAttribute="trailing" secondItem="YEo-e4-BMV" secondAttribute="trailing" constant="20" id="9pq-Kv-R6S"/>
+                                                            <constraint firstAttribute="bottom" secondItem="S7F-y3-z9B" secondAttribute="bottom" constant="290" id="BBS-cs-gXe"/>
+                                                            <constraint firstItem="S7F-y3-z9B" firstAttribute="leading" secondItem="ZNN-zO-L1p" secondAttribute="leading" constant="20" id="aAK-Xy-KYR"/>
+                                                            <constraint firstItem="S7F-y3-z9B" firstAttribute="top" secondItem="ZNN-zO-L1p" secondAttribute="top" constant="20" id="b9i-1r-szc"/>
+                                                            <constraint firstAttribute="height" constant="350" id="bnY-qE-Z2F"/>
+                                                            <constraint firstItem="YEo-e4-BMV" firstAttribute="top" secondItem="ZNN-zO-L1p" secondAttribute="top" constant="60" id="ira-QJ-mCx"/>
+                                                            <constraint firstAttribute="trailing" secondItem="S7F-y3-z9B" secondAttribute="trailing" constant="20" id="jmW-29-o7C"/>
+                                                            <constraint firstAttribute="bottom" secondItem="YEo-e4-BMV" secondAttribute="bottom" id="oYd-lq-dS5"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Uf2-59-zLF">
+                                                        <rect key="frame" x="0.0" y="1090" width="414" height="521"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movimientos" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SmA-Yw-CXT">
+                                                                <rect key="frame" x="0.0" y="20" width="414" height="24.5"/>
+                                                                <fontDescription key="fontDescription" name="Puzzle-Tale-Pixel-BG" family="Puzzle Tale Pixel BG" pointSize="35"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                                <color key="shadowColor" red="0.1282708347" green="0.16461813450000001" blue="0.1772539914" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <size key="shadowOffset" width="1" height="0.0"/>
+                                                            </label>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="8EM-Tx-V63">
+                                                                <rect key="frame" x="15" y="54.5" width="384" height="51.5"/>
+                                                                <subviews>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movimiento" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="ywa-cm-Ck5">
+                                                                        <rect key="frame" x="0.0" y="15.5" width="203.5" height="21"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="width" constant="203.5" id="j6u-Nq-58X"/>
+                                                                        </constraints>
+                                                                        <fontDescription key="fontDescription" name="Puzzle-Tale-Pixel" family="Puzzle Tale Pixel" pointSize="30"/>
+                                                                        <nil key="textColor"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                        <color key="shadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        <size key="shadowOffset" width="1" height="0.0"/>
+                                                                    </label>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Potencia" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Qme-gY-bgK">
+                                                                        <rect key="frame" x="203.5" y="15" width="74" height="22"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="width" constant="74" id="jae-dH-oJc"/>
+                                                                        </constraints>
+                                                                        <fontDescription key="fontDescription" name="Puzzle-Tale-Pixel" family="Puzzle Tale Pixel" pointSize="30"/>
+                                                                        <nil key="textColor"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                        <color key="shadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        <size key="shadowOffset" width="1" height="1"/>
+                                                                    </label>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Prec." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="zMP-cT-Cjb">
+                                                                        <rect key="frame" x="277.5" y="15.5" width="74" height="21"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="width" constant="74" id="9K9-T1-ZVI"/>
+                                                                        </constraints>
+                                                                        <fontDescription key="fontDescription" name="Puzzle-Tale-Pixel" family="Puzzle Tale Pixel" pointSize="30"/>
+                                                                        <nil key="textColor"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                        <color key="shadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        <size key="shadowOffset" width="1" height="0.0"/>
+                                                                    </label>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PP" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="nCK-96-jdd">
+                                                                        <rect key="frame" x="351.5" y="15.5" width="32.5" height="21"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="width" constant="32.5" id="DG6-GK-vKB"/>
+                                                                        </constraints>
+                                                                        <fontDescription key="fontDescription" name="Puzzle-Tale-Pixel" family="Puzzle Tale Pixel" pointSize="30"/>
+                                                                        <nil key="textColor"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                        <color key="shadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        <size key="shadowOffset" width="1" height="0.0"/>
+                                                                    </label>
+                                                                </subviews>
+                                                            </stackView>
+                                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="120" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="YHr-Em-6yu">
+                                                                <rect key="frame" x="15" y="111" width="384" height="400"/>
+                                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="400" id="4VH-an-vtC"/>
+                                                                </constraints>
+                                                                <connections>
+                                                                    <outlet property="dataSource" destination="dPu-43-nt1" id="MWE-K3-X3c"/>
+                                                                    <outlet property="delegate" destination="dPu-43-nt1" id="CaL-n2-CoP"/>
+                                                                </connections>
+                                                            </tableView>
+                                                        </subviews>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <constraints>
+                                                            <constraint firstItem="SmA-Yw-CXT" firstAttribute="leading" secondItem="Uf2-59-zLF" secondAttribute="leading" id="11d-pD-6IO"/>
+                                                            <constraint firstAttribute="trailing" secondItem="SmA-Yw-CXT" secondAttribute="trailing" id="2zN-Ta-S4P"/>
+                                                            <constraint firstItem="YHr-Em-6yu" firstAttribute="leading" secondItem="Uf2-59-zLF" secondAttribute="leading" constant="15" id="3Rh-1K-6G4"/>
+                                                            <constraint firstItem="SmA-Yw-CXT" firstAttribute="top" secondItem="Uf2-59-zLF" secondAttribute="top" constant="20" id="7St-ex-WMt"/>
+                                                            <constraint firstAttribute="bottom" secondItem="YHr-Em-6yu" secondAttribute="bottom" constant="10" id="GaP-Vc-EIR"/>
+                                                            <constraint firstItem="8EM-Tx-V63" firstAttribute="leading" secondItem="Uf2-59-zLF" secondAttribute="leading" constant="15" id="JHy-Q3-zXF"/>
+                                                            <constraint firstAttribute="trailing" secondItem="YHr-Em-6yu" secondAttribute="trailing" constant="15" id="dnL-uY-RT6"/>
+                                                            <constraint firstItem="YHr-Em-6yu" firstAttribute="top" secondItem="8EM-Tx-V63" secondAttribute="bottom" constant="5" id="drO-go-8Ns"/>
+                                                            <constraint firstItem="8EM-Tx-V63" firstAttribute="top" secondItem="SmA-Yw-CXT" secondAttribute="bottom" constant="10" id="kTH-Ut-FIJ"/>
+                                                            <constraint firstAttribute="trailing" secondItem="8EM-Tx-V63" secondAttribute="trailing" constant="15" id="zDa-vq-UKi"/>
+                                                        </constraints>
+                                                    </view>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="hq2-GB-CQW" secondAttribute="trailing" id="Gh4-eg-r3j"/>
+                                            <constraint firstItem="hq2-GB-CQW" firstAttribute="leading" secondItem="cEs-Av-QhJ" secondAttribute="leading" id="fuX-Ou-xcc"/>
+                                            <constraint firstAttribute="bottom" secondItem="hq2-GB-CQW" secondAttribute="bottom" id="nfS-Rd-fkM"/>
+                                            <constraint firstItem="hq2-GB-CQW" firstAttribute="top" secondItem="cEs-Av-QhJ" secondAttribute="top" id="qjd-6N-F92"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="cEs-Av-QhJ" secondAttribute="trailing" id="KrV-aG-bfN"/>
+                                    <constraint firstItem="cEs-Av-QhJ" firstAttribute="top" secondItem="coK-Jn-fsA" secondAttribute="top" id="M5x-H3-Br9"/>
+                                    <constraint firstAttribute="bottom" secondItem="cEs-Av-QhJ" secondAttribute="bottom" constant="35" id="RgG-Fi-pi7"/>
+                                    <constraint firstItem="cEs-Av-QhJ" firstAttribute="width" secondItem="coK-Jn-fsA" secondAttribute="width" id="WRx-ji-Nxc"/>
+                                    <constraint firstItem="cEs-Av-QhJ" firstAttribute="leading" secondItem="coK-Jn-fsA" secondAttribute="leading" id="zza-wD-IDb"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="WEm-0p-GLY"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="m0o-z6-rq9"/>
+                            </scrollView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Ovo-XB-cUx"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="coK-Jn-fsA" firstAttribute="trailing" secondItem="Ovo-XB-cUx" secondAttribute="trailing" id="PrL-8x-z7t"/>
+                            <constraint firstItem="coK-Jn-fsA" firstAttribute="top" secondItem="Ovo-XB-cUx" secondAttribute="top" id="Y6a-O0-ZNS"/>
+                            <constraint firstAttribute="bottom" secondItem="coK-Jn-fsA" secondAttribute="bottom" id="ZfE-Ol-agI"/>
+                            <constraint firstItem="coK-Jn-fsA" firstAttribute="leading" secondItem="Ovo-XB-cUx" secondAttribute="leading" id="rBT-QB-HdG"/>
+                        </constraints>
+                    </view>
+                    <size key="freeformSize" width="414" height="2000"/>
+                    <connections>
+                        <outlet property="movesTableView" destination="YHr-Em-6yu" id="cJJ-OB-8E6"/>
+                        <outlet property="movesTableViewHeight" destination="4VH-an-vtC" id="s6G-AS-fdY"/>
+                        <outlet property="pkmAtaque" destination="6iA-Y5-wfb" id="P1I-wK-rZK"/>
+                        <outlet property="pkmAtaqueBar" destination="sfP-59-DgN" id="qB7-qi-1ng"/>
+                        <outlet property="pkmAtaqueEsp" destination="Vzx-y0-Lu4" id="IhY-wu-pgr"/>
+                        <outlet property="pkmAtaqueEspBar" destination="05u-ir-BG2" id="eLv-Ix-2pK"/>
+                        <outlet property="pkmDefensa" destination="lqb-P8-Kl6" id="VxK-Vk-V1Y"/>
+                        <outlet property="pkmDefensaBar" destination="yD4-uX-y8O" id="L6o-ua-0Xe"/>
+                        <outlet property="pkmDefensaEsp" destination="qkh-L2-cgG" id="qGp-lo-Fic"/>
+                        <outlet property="pkmDefensaEspBar" destination="dfS-ro-tOa" id="lgf-pX-Oga"/>
+                        <outlet property="pkmDescription" destination="FAE-KB-tbX" id="dOH-kd-44a"/>
+                        <outlet property="pkmHeight" destination="kdH-sb-7Ov" id="z3a-8S-WvE"/>
+                        <outlet property="pkmHp" destination="ruY-wc-Xji" id="0MJ-Sl-Gy4"/>
+                        <outlet property="pkmHpBar" destination="ZF6-Dc-PZO" id="9et-iy-Cp4"/>
+                        <outlet property="pkmImage" destination="WH3-ug-UoG" id="hkK-1A-CiB"/>
+                        <outlet property="pkmName" destination="cvB-Vo-6gS" id="8Ee-AU-zaU"/>
+                        <outlet property="pkmRatio" destination="Qz6-Pk-eal" id="ZYN-S7-JSZ"/>
+                        <outlet property="pkmSpecie" destination="Pab-1F-Dwq" id="eQH-Q7-of5"/>
+                        <outlet property="pkmTotal" destination="PCn-ot-90U" id="Xl8-bK-PNo"/>
+                        <outlet property="pkmTotalBar" destination="Ouu-AH-qiq" id="8rg-YG-yMI"/>
+                        <outlet property="pkmTypeOne" destination="gOs-ra-i2E" id="Heq-Cb-UWG"/>
+                        <outlet property="pkmTypeTwo" destination="h6m-P0-GYm" id="o1b-ua-0pr"/>
+                        <outlet property="pkmVelocidad" destination="b3J-Wo-tVp" id="hu7-Db-ans"/>
+                        <outlet property="pkmVelocidadBar" destination="wiE-8Z-wHL" id="KMc-kh-yLc"/>
+                        <outlet property="pkmWeight" destination="7jQ-91-yBo" id="w7i-en-kAW"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VKn-3C-dkX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-502.89855072463774" y="192.1875"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Tipo_bug" width="200" height="44"/>
+        <image name="Tipo_steel" width="200" height="44"/>
+        <image name="bulbasaur" width="475" height="475"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
