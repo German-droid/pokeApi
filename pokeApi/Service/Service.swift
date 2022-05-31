@@ -129,18 +129,6 @@ class Service {
         }.resume()
     }
     
-    func fetchMovements(urls: [ResumeMove], completion: @escaping (OrderedDictionary<Int,DetailedMovement>) -> () ) {
-        
-        var dictionaryMoves = OrderedDictionary<Int,DetailedMovement>()
-        
-        for resumeMove in urls {
-            //self.fetchOneMove(url: resumeMove.move.url) { detailedMovement in
-            print(resumeMove.move.url.split(separator: "/", omittingEmptySubsequences: true))
-            //}
-        }
-        
-    }
-    
     func fetchOneMove(url: String, completion: @escaping (DetailedMovement) -> () ) {
         guard let url = URL(string: url) else {return}
         
@@ -200,13 +188,13 @@ class Service {
             newPokemon.addToTypes(newType)
         }
         
-        print("-----",pokemon.name, "-----")
+        //print("-----",pokemon.name, "-----")
         
         // Movements entity
         for pkmMove in pokemon.moves {
             let newMove = DetailedMovements(context: managedContext)
             newMove.setValue(String(pkmMove.move.name), forKey: "name")
-            print(pkmMove.move.name)
+            //print(pkmMove.move.name)
             newPokemon.addToMovements(newMove)
         }
         
@@ -242,11 +230,30 @@ class Service {
         }
     }
     
+    func fetchOneFromCoreData(id: Int, completion: @escaping (DetailedPokemons) -> ()) {
+        
+        let fetchRequest: NSFetchRequest<DetailedPokemons>
+        fetchRequest = DetailedPokemons.fetchRequest()
+
+        fetchRequest.predicate = NSPredicate(
+            format: "id LIKE %@", String(id)
+        )
+        
+        
+        do {
+            let pokemon = try managedContext.fetch(fetchRequest)
+            
+            completion(pokemon[0])
+        } catch let error {
+            print("No se pudieron obtener los datos de Core Data. \(error.localizedDescription)")
+        }
+    }
+    
     func deleteFromPersistent() {
         do {
             let allSaved = try managedContext.fetch(DetailedPokemons.fetchRequest())
             
-            print(allSaved.count)
+            //print(allSaved.count)
             for pokemon in allSaved {
                 self.managedContext.delete(pokemon)
             }

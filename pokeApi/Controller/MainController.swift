@@ -6,17 +6,23 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class MainController: UITabBarController {
-
-    // create instance of view controllers
-    let pokedexVC = UINavigationController(rootViewController: PokedexVC())
-    let teamVC = UINavigationController(rootViewController: TeamVC())
-    let battleVC = UINavigationController(rootViewController: BattleVC())
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+        
+        // create instance of view controllers
+        
+        
+        
+        let pokedexVC = UINavigationController(rootViewController: PokedexVC())
+        let teamVC = UINavigationController(rootViewController: TeamVC())
+        let battleVC = UINavigationController(rootViewController: BattleVC())
+        
+        
+        
         // set title
         pokedexVC.title = "Pokedex"
         teamVC.title = "Mi Equipo"
@@ -51,6 +57,8 @@ class MainController: UITabBarController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        navigationController?.setNavigationBarHidden(true, animated: animated)
+        
         let selectedColor = UIColor.rgb(red: 255, blue: 255, green: 255, alpha: 1)
         let normalColor = UIColor.rgb(red: 255, blue: 255, green: 255, alpha: 0.6)
         
@@ -72,6 +80,8 @@ class MainController: UITabBarController {
         tabBarAppearance.backgroundColor = .mainPink()
         tabBarAppearance.stackedLayoutAppearance = tabBarItemAppearance
 
+        view.backgroundColor = .white
+        tabBar.backgroundColor = .white
         tabBar.standardAppearance = tabBarAppearance
         tabBar.scrollEdgeAppearance = tabBarAppearance
         

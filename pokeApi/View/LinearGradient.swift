@@ -21,7 +21,7 @@ class LinearGradient: UIView {
             gradientLayer.startPoint = CGPoint(x: 0, y: 0)
             gradientLayer.endPoint = vertical ? CGPoint(x: 0, y: 1): CGPoint(x: 1, y: 0)
             gradientLayer.colors = [UIColor.systemRed.cgColor,UIColor.systemOrange.cgColor,UIColor.systemYellow.cgColor,UIColor.systemMint.cgColor,UIColor.systemTeal.cgColor,UIColor.systemCyan.cgColor,UIColor.systemBlue.cgColor]
-            gradientLayer.locations = [0.0,0.125,0.375,0.5,0.625,0.875,1.0]
+            gradientLayer.locations = [0.0,0.100,0.300,0.4,0.600,0.800,1.0]
             self.layer.insertSublayer(gradientLayer, at: 0)
             
         }

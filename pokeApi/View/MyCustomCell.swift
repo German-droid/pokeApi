@@ -9,6 +9,7 @@ import UIKit
 
 class MyCustomCell: UITableViewCell {
 
+    @IBOutlet weak var typesStackView: UIStackView!
     
     @IBOutlet weak var pokemonIndex: UILabel!
     @IBOutlet weak var pokemonName: UILabel!
@@ -30,15 +31,17 @@ class MyCustomCell: UITableViewCell {
         
         pokemonImage.image = UIImage(data: imageData)
         setImageBR()
+        setTypesBR()
         pokemonImage.backgroundColor = pokemonImage.image?.cropToRect(rect: CGRect(x: 40, y: 40, width: 15, height: 15))?.averageColor
+        typesStackView.backgroundColor = .rgb(red: 25, blue: 30, green: 32, alpha: 0.9)
         //pokemonImage.layer.cornerRadius = 50
         
-        firstTypeImage.image = UIImage(named: "Tipo_\(firstType)")
+        firstTypeImage.image = UIImage(named: "\(firstType)")
         
         if secondType == "" {
             secondTypeImage.image = UIImage()
         } else {
-            secondTypeImage.image = UIImage(named: "Tipo_\(secondType)")
+            secondTypeImage.image = UIImage(named: "\(secondType)")
         }
     }
 
@@ -71,6 +74,37 @@ class MyCustomCell: UITableViewCell {
         maskLayer.frame = pokemonImage.bounds
 
         pokemonImage.layer.mask = maskLayer
+    }
+    
+    func setTypesBR() {
+        // Specify which corners to round
+        let corners = UIRectCorner(arrayLiteral: [
+            UIRectCorner.topRight,
+            UIRectCorner.bottomRight
+        ])
+
+        // Determine the size of the rounded corners
+        let cornerRadii = CGSize(
+            width: 30,
+            height: 30
+        )
+
+        // A mask path is a path used to determine what
+        // parts of a view are drawn. UIBezier path can
+        // be used to create a path where only specific
+        // corners are rounded
+        let maskPath = UIBezierPath(
+            roundedRect: typesStackView.bounds,
+            byRoundingCorners: corners,
+            cornerRadii: cornerRadii
+        )
+
+        // Apply the mask layer to the view
+        let maskLayer = CAShapeLayer()
+        maskLayer.path = maskPath.cgPath
+        maskLayer.frame = typesStackView.bounds
+
+        typesStackView.layer.mask = maskLayer
     }
     
     static let identifier = "MyCustomCell"

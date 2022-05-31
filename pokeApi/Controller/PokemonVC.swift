@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 import SwiftUI
+import OrderedCollections
 
 class PokemonVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
@@ -90,7 +91,7 @@ class PokemonVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             if let detailedMovement = movement as? DetailedMovements {
                 
                 if detailedMovement.pp == 0 {
-                    print("dento",detailedMovement.name!)
+                    //print("dento",detailedMovement.name!)
                     Service.shared.fetchOneMove(url: "https://pokeapi.co/api/v2/move/\(detailedMovement.name!)") { [self] detailedMovement in
                         //print(detailedMovement)
                     
@@ -119,7 +120,7 @@ class PokemonVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                         self.detailedPkm.movements = NSSet(array: arrMovements)
                         
                         DispatchQueue.main.async {
-                            movesTableViewHeight.constant = CGFloat((arrMovements.count * 120))
+                            movesTableViewHeight.constant = CGFloat((arrMovements.count * 100))
                             self.movesTableView.reloadData()
                         }
                         
@@ -144,7 +145,7 @@ class PokemonVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     func setTableHeight(count: Int) {
-        movesTableViewHeight.constant = CGFloat((count * 120))
+        movesTableViewHeight.constant = CGFloat((count * 100))
     }
     
     func setBarsProperties(gradientView: LinearGradient) {
@@ -179,7 +180,7 @@ class PokemonVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         // Bars progress
         guard let pkmHp = detailedPkm.stats?.hp, let pkmAtk = detailedPkm.stats?.attack, let pkmDef = detailedPkm.stats?.defense, let pkmAtkSp = detailedPkm.stats?.specialAttack, let pkmDefSp = detailedPkm.stats?.specialDefense, let pkmSpeed = detailedPkm.stats?.speed else {return}
         
-        var total = pkmHp + pkmAtk + pkmDef + pkmAtkSp + pkmDefSp + pkmSpeed
+        let total = pkmHp + pkmAtk + pkmDef + pkmAtkSp + pkmDefSp + pkmSpeed
         
         // Values of the max of the pokemon (255) to get the max of the progress bar (1)
         
@@ -215,7 +216,7 @@ class PokemonVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         // Pokemon Stats
         guard let pkmHp = detailedPkm.stats?.hp, let pkmAtk = detailedPkm.stats?.attack, let pkmDef = detailedPkm.stats?.defense, let pkmAtkSp = detailedPkm.stats?.specialAttack, let pkmDefSp = detailedPkm.stats?.specialDefense, let pkmSpeed = detailedPkm.stats?.speed else {return}
         
-        var total = pkmHp + pkmAtk + pkmDef + pkmAtkSp + pkmDefSp + pkmSpeed
+        let total = pkmHp + pkmAtk + pkmDef + pkmAtkSp + pkmDefSp + pkmSpeed
         
         self.pkmHp.text = "\(pkmHp)"
         pkmAtaque.text = "\(pkmAtk)"
@@ -285,7 +286,7 @@ class PokemonVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         pkmRatio.text = "\( String(detailedPkm.species?.captureRatio ?? 0))"
         
         // Pokemon Desc
-        pkmDescription.text = "\(detailedPkm.species?.entry ?? "Entrada no encontrada")"
+        pkmDescription.text = "\(detailedPkm.species?.entry ?? "")"
         
         
     }
@@ -295,13 +296,13 @@ class PokemonVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        120
+        100
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: MovementsTableViewCell.identifier, for: indexPath) as! MovementsTableViewCell
         
-        print(detailedPkm.movements!.count)
+        //print(detailedPkm.movements!.count)
         
         let arrMovements = detailedPkm.movements!.allObjects as! [DetailedMovements]
         let sortedMovements = arrMovements.sorted {
@@ -317,6 +318,23 @@ class PokemonVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     // Selectores
     @objc func addToTeam() {
-        print("Pokemon añadido con éxito al equipo")
+        
+        if var myTeam = UserDefaults.standard.object(forKey: "myTeam") as? [Int] {
+            
+            if myTeam.count < 6 {
+                myTeam.append(Int(detailedPkm.id))
+                UserDefaults.standard.set(myTeam, forKey: "myTeam")
+                CustomToast.show(message: "\(detailedPkm.name!.firstUppercased) se añadió a tu equipo", bgColor: .black, textColor: .white, labelFont: UIFont(name: "Puzzle-Tale-Pixel-BG", size: 25) ?? .boldSystemFont(ofSize: 25), showIn: .top, controller: self)
+            } else {
+                CustomToast.show(message: "Ya tienes 6 pokemons en tu equipo", bgColor: .black, textColor: .white, labelFont: UIFont(name: "Puzzle-Tale-Pixel-BG", size: 25) ?? .boldSystemFont(ofSize: 25), showIn: .top, controller: self)
+            }
+            
+            print(myTeam)
+            
+        } else {
+            UserDefaults.standard.set([Int(detailedPkm.id)], forKey: "myTeam")
+            CustomToast.show(message: "\(detailedPkm.name!.firstUppercased) se añadió a tu equipo", bgColor: .black, textColor: .white, labelFont: UIFont(name: "Puzzle-Tale-Pixel-BG", size: 25) ?? .boldSystemFont(ofSize: 25), showIn: .top, controller: self)
+        }
+        
     }
 }
