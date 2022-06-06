@@ -44,6 +44,7 @@ class TeamVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIGe
         self.tableView.dataSource = self
         
         downloadYourTeam()
+        
     }
     
     override func viewWillLayoutSubviews() {
@@ -63,14 +64,13 @@ class TeamVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIGe
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-
-        checkForPokemons()
         
+        checkForPokemons()
 
     }
     
     func checkForPokemons() {
-        if var myTeam = UserDefaults.standard.object(forKey: "myTeam") as? [Int] {
+        if let myTeam = UserDefaults.standard.object(forKey: "myTeam") as? [Int] {
             if myTeam.count >= 1 {
                 
                 var selectedNow = [DetailedPokemons]()
@@ -87,7 +87,7 @@ class TeamVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIGe
                 
                 if var myTeamMovements = UserDefaults.standard.object(forKey: "myTeamMovements") as? [[String]] {
                     // El resto de veces se comprueba que hayan el mismo numero de pokemons que de movimientos de uno, sino se añaden nuevos vacios
-                    var diff = selectedPkms.count - myTeamMovements.count
+                    let diff = selectedPkms.count - myTeamMovements.count
                     
                     if diff != 0 {
                         for _ in 1...diff {
@@ -100,12 +100,35 @@ class TeamVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIGe
                     // Primera vez que entras
                     var myTeamMovements: [[String]] = []
                     
-                    for pokemon in selectedNow {
+                    for _ in selectedNow {
                         myTeamMovements.append(["-","-","-","-"])
                     }
                     UserDefaults.standard.set(myTeamMovements, forKey: "myTeamMovements")
                     
                 }
+                
+                if var myTeamMovementsOriginal = UserDefaults.standard.object(forKey: "myTeamMovementsOriginal") as? [[String]] {
+                    // El resto de veces se comprueba que hayan el mismo numero de pokemons que de movimientos de uno, sino se añaden nuevos vacios
+                    let diff = selectedPkms.count - myTeamMovementsOriginal.count
+                    
+                    if diff != 0 {
+                        for _ in 1...diff {
+                            myTeamMovementsOriginal.append(["-","-","-","-"])
+                        }
+                        UserDefaults.standard.set(myTeamMovementsOriginal, forKey: "myTeamMovementsOriginal")
+                    }
+                    
+                } else {
+                    // Primera vez que entras
+                    var myTeamMovementsOriginal: [[String]] = []
+                    
+                    for _ in selectedNow {
+                        myTeamMovementsOriginal.append(["-","-","-","-"])
+                    }
+                    UserDefaults.standard.set(myTeamMovementsOriginal, forKey: "myTeamMovementsOriginal")
+                    
+                }
+                
                 tableView.reloadData()
                 
             } else {
@@ -126,7 +149,7 @@ class TeamVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIGe
         let appearance = UINavigationBarAppearance()
         
         appearance.backgroundColor = .mainPink()
-        appearance.titleTextAttributes = [.foregroundColor: UIColor.white, .font: UIFont(name: "Pokemon-Pixel-Font", size: 35)!]
+        appearance.titleTextAttributes = [.foregroundColor: UIColor.white, .font: UIFont(name: "Puzzle-Tale-Pixel-BG", size: 35)!]
         appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
 
         navigationItem.title = "Mi Equipo"
@@ -160,18 +183,27 @@ class TeamVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIGe
         guard let user = Auth.auth().currentUser else {return}
             
         Database.database().reference().child("usuarios").child(user.uid).observeSingleEvent(of: .value) { snapshot in
-            guard let team = snapshot.childSnapshot(forPath: "team").value as? [Int], let teamMovements = snapshot.childSnapshot(forPath: "teamMovements").value as? [[String]] else {
+            guard let team = snapshot.childSnapshot(forPath: "team").value as? [Int], let teamMovements = snapshot.childSnapshot(forPath: "teamMovements").value as? [[String]], let teamMovementsOriginal = snapshot.childSnapshot(forPath: "teamMovementsOriginal").value as? [[String]] else {
+                
+                self.noTeamLabel.isHidden = false
+                self.selectedPkms.removeAll()
+                UserDefaults.standard.set([], forKey: "myTeam")
+                UserDefaults.standard.set([], forKey: "myTeamMovements")
+                UserDefaults.standard.set([], forKey: "myTeamMovementsOriginal")
+                self.tableView.reloadData()
+                
                 return
             }
-            print(team,teamMovements)
+            print(team,teamMovements,teamMovementsOriginal)
             
-            guard team.count != 0 || teamMovements.count != 0 else {
+            guard team.count != 0 || teamMovements.count != 0 || teamMovementsOriginal.count != 0 else {
                 CustomToast.show(message: "No se tienen datos guardados", bgColor: .black, textColor: .white, labelFont: UIFont(name: "Puzzle-Tale-Pixel-BG", size: 25) ?? .boldSystemFont(ofSize: 25), showIn: .top, controller: self)
                 return
             }
             
             UserDefaults.standard.set(team, forKey: "myTeam")
             UserDefaults.standard.set(teamMovements, forKey: "myTeamMovements")
+            UserDefaults.standard.set(teamMovementsOriginal, forKey: "myTeamMovementsOriginal")
             self.checkForPokemons()
         }
         
@@ -182,15 +214,15 @@ class TeamVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIGe
          
         guard let user = Auth.auth().currentUser else {return}
         
-        if var myTeam = UserDefaults.standard.object(forKey: "myTeam") as? [Int], var myTeamMovements = UserDefaults.standard.object(forKey: "myTeamMovements") as? [[String]]  {
+        if var myTeam = UserDefaults.standard.object(forKey: "myTeam") as? [Int], var myTeamMovements = UserDefaults.standard.object(forKey: "myTeamMovements") as? [[String]], var myTeamMovementsOriginal = UserDefaults.standard.object(forKey: "myTeamMovementsOriginal") as? [[String]]  {
             
-            guard myTeam.count != 0 || myTeamMovements.count != 0 else {
+            guard myTeam.count != 0 || myTeamMovementsOriginal.count != 0 else {
                 CustomToast.show(message: "Tu equipo ha de tener al menos 1 Pokémon", bgColor: .black, textColor: .white, labelFont: UIFont(name: "Puzzle-Tale-Pixel-BG", size: 25) ?? .boldSystemFont(ofSize: 25), showIn: .top, controller: self)
                 return
             }
             
             var oneWithoutAttacks = false
-            for pkmMovements in myTeamMovements {
+            for pkmMovements in myTeamMovementsOriginal {
                 if pkmMovements.filter({ $0 != "-" }).count == 0 {
                     oneWithoutAttacks = true
                 }
@@ -203,6 +235,7 @@ class TeamVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIGe
             
             Database.database().reference().child("usuarios").child(user.uid).child("team").setValue(myTeam)
             Database.database().reference().child("usuarios").child(user.uid).child("teamMovements").setValue(myTeamMovements)
+            Database.database().reference().child("usuarios").child(user.uid).child("teamMovementsOriginal").setValue(myTeamMovementsOriginal)
             
             CustomToast.show(message: "¡Tu equipo se ha guardado con éxito!", bgColor: .black, textColor: .white, labelFont: UIFont(name: "Puzzle-Tale-Pixel-BG", size: 25) ?? .boldSystemFont(ofSize: 25), showIn: .top, controller: self)
             
@@ -212,7 +245,7 @@ class TeamVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIGe
     
     @objc func deleteAllPokemons() {
         
-        if var myTeam = UserDefaults.standard.object(forKey: "myTeam") as? [Int], var myTeamMovements = UserDefaults.standard.object(forKey: "myTeamMovements") as? [[String]]  {
+        if var myTeam = UserDefaults.standard.object(forKey: "myTeam") as? [Int], var myTeamMovements = UserDefaults.standard.object(forKey: "myTeamMovements") as? [[String]], var myTeamMovementsOriginal = UserDefaults.standard.object(forKey: "myTeamMovementsOriginal") as? [[String]]  {
             
             guard myTeam.count == 0 || myTeamMovements.count == 0 else {
                 
@@ -223,9 +256,11 @@ class TeamVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIGe
                     
                     let pokemons: [Int] = []
                     let movements: [[String]] = []
+                    let movementsOriginal: [[String]] = []
                     
                     UserDefaults.standard.set(pokemons, forKey: "myTeam")
                     UserDefaults.standard.set(movements, forKey: "myTeamMovements")
+                    UserDefaults.standard.set(movementsOriginal, forKey: "myTeamMovementsOriginal")
                     
                     self.checkForPokemons()
                     
@@ -280,6 +315,12 @@ class TeamVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIGe
             myTeamMovements.remove(at: sender.tag)
             print(myTeamMovements)
             UserDefaults.standard.set(myTeamMovements, forKey: "myTeamMovements")
+        }
+        
+        if var myTeamMovementsOriginal = UserDefaults.standard.object(forKey: "myTeamMovementsOriginal") as? [[String]] {
+            myTeamMovementsOriginal.remove(at: sender.tag)
+            print(myTeamMovementsOriginal)
+            UserDefaults.standard.set(myTeamMovementsOriginal, forKey: "myTeamMovementsOriginal")
         }
         
         selectedPkms.remove(at: sender.tag)

@@ -8,12 +8,14 @@
 import UIKit
 
 struct DetailedMovement: Codable {
+    let name: String
     let accuracy: Int?
     let damage_class: DamageClass
     let type: MoveType
-    let names: [MoveNameLang]
+    var names: [MoveNameLang]
     let power: Int?
     let pp: Int
+    var currentPP: Int?
 }
 
 struct MoveNameLang: Codable {

@@ -10,10 +10,14 @@ import DropDown
 
 class PokemonTeamCell: UITableViewCell {
     
+    var generalMovements = [String]()
+    var generalMovementsOriginal = [String]()
     var detailedPokemon = DetailedPokemons()
     var pokemonIndexOnTeam = Int()
     var pokemonMovements: [String] = []
+    var pokemonMovementsOriginal: [String] = []
     var selectedMovements: [String] = ["-","-","-","-"]
+    var selectedMovementsOriginal: [String] = ["-","-","-","-"]
     let dropDown = DropDown()
     
     @IBOutlet weak var pkmIndex: UILabel!
@@ -90,17 +94,33 @@ class PokemonTeamCell: UITableViewCell {
             }
             
         })
-        
+    
         var movementsNames = sortedMovements.map {
             $0.name!
         }
+        generalMovements = movementsNames
         
-        if let myTeamMovements = UserDefaults.standard.object(forKey: "myTeamMovements") as? [[String]] {
+        var movementsNamesOriginal = sortedMovements.map {
+            $0.originalName ?? ""
+        }
+        generalMovementsOriginal = movementsNamesOriginal
+        
+        print(movementsNamesOriginal)
+        
+        
+        if let myTeamMovements = UserDefaults.standard.object(forKey: "myTeamMovements") as? [[String]], let myTeamMovementsOriginal = UserDefaults.standard.object(forKey: "myTeamMovementsOriginal") as? [[String]] {
             let thisPokemonMovements = myTeamMovements[index]
+            let thisPokemonMovementsOriginal = myTeamMovementsOriginal[index]
             
             selectedMovements = thisPokemonMovements
+            selectedMovementsOriginal = thisPokemonMovementsOriginal
+            
             movementsNames = movementsNames.filter {
                 !thisPokemonMovements.contains($0)
+            }
+            
+            movementsNamesOriginal = movementsNamesOriginal.filter {
+                !thisPokemonMovementsOriginal.contains($0)
             }
             
             for (index,movement) in thisPokemonMovements.enumerated() {
@@ -122,6 +142,9 @@ class PokemonTeamCell: UITableViewCell {
         
         pokemonMovements = movementsNames
         pokemonMovements.insert("-", at: 0)
+        pokemonMovementsOriginal = movementsNamesOriginal
+        pokemonMovementsOriginal.insert("-", at: 0)
+        
         dropDown.dataSource = pokemonMovements
     }
     
@@ -142,6 +165,7 @@ class PokemonTeamCell: UITableViewCell {
         
         dropDown.selectionAction = { [unowned self] (index: Int, item: String) in
             
+            // Poner el texto del slot seleccionado
             switch attackNumber {
             case 1:
                 pkmAttack1Label.text = item
@@ -154,37 +178,53 @@ class PokemonTeamCell: UITableViewCell {
             }
             
             if selectedMovements[attackNumber-1] != "-" {
-                print("El movimiento a cambiar es: ",selectedMovements[attackNumber-1])
+                //print("El movimiento a cambiar es: ",selectedMovements[attackNumber-1])
                 pokemonMovements.append( selectedMovements[attackNumber-1] )
                 selectedMovements[attackNumber-1] = pokemonMovements.remove(at: index)
             } else {
                 selectedMovements[attackNumber-1] = pokemonMovements.remove(at: index)
             }
             
-            var sortedMovements = pokemonMovements.sorted {
-                $0 < $1
+            if selectedMovementsOriginal[attackNumber-1] != "-" {
+                //print("El movimiento a cambiar es: ",selectedMovementsOriginal[attackNumber-1])
+                pokemonMovementsOriginal.append( selectedMovementsOriginal[attackNumber-1] )
+                selectedMovementsOriginal[attackNumber-1] = pokemonMovementsOriginal.remove(at: index)
+            } else {
+                selectedMovementsOriginal[attackNumber-1] = pokemonMovementsOriginal.remove(at: index)
             }
             
-            if item == "-" {
-                sortedMovements.insert(item, at: 0)
+            var sortedMovements = generalMovements.filter {
+                !selectedMovements.contains($0)
             }
+            
+            var sortedMovementsOriginal = generalMovementsOriginal.filter {
+                !selectedMovementsOriginal.contains($0)
+            }
+            
+            
+            sortedMovements.insert("-", at: 0)
+            sortedMovementsOriginal.insert("-", at: 0)
 
             //print(pokemonIndexOnTeam)
-            if var myTeamMovements = UserDefaults.standard.object(forKey: "myTeamMovements") as? [[String]] {
+            if var myTeamMovements = UserDefaults.standard.object(forKey: "myTeamMovements") as? [[String]], var myTeamMovementsOriginal = UserDefaults.standard.object(forKey: "myTeamMovementsOriginal") as? [[String]] {
                 myTeamMovements[pokemonIndexOnTeam] = selectedMovements
+                myTeamMovementsOriginal[pokemonIndexOnTeam] = selectedMovementsOriginal
                 
                 print(myTeamMovements)
+                print(myTeamMovementsOriginal)
+                
                 UserDefaults.standard.set(myTeamMovements, forKey: "myTeamMovements")
+                UserDefaults.standard.set(myTeamMovementsOriginal, forKey: "myTeamMovementsOriginal")
             }
             
+            pokemonMovementsOriginal = sortedMovementsOriginal
             pokemonMovements = sortedMovements
-            dropDown.dataSource = sortedMovements
             
+            dropDown.dataSource = pokemonMovements
         }
         
         dropDown.show()
     }
-    
     
     static let identifier = "PokemonTeamCell"
     

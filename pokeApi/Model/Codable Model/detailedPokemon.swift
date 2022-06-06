@@ -29,11 +29,13 @@ struct MoveUrl: Codable {
 }
 
 struct PokemonSprite: Codable {
+    let backUrl: String
     let url: String
     let other: QualitySprite
     
     enum CodingKeys: String, CodingKey {
         case url = "front_default"
+        case backUrl = "back_default"
         case other = "other"
     }
 }

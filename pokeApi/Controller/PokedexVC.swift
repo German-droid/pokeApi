@@ -142,7 +142,7 @@ class PokedexVC: UIViewController, UITableViewDelegate, UITableViewDataSource, U
         let appearance = UINavigationBarAppearance()
         
         appearance.backgroundColor = .mainPink()
-        appearance.titleTextAttributes = [.foregroundColor: UIColor.white, .font: UIFont(name: "Pokemon-Pixel-Font", size: 35)!]
+        appearance.titleTextAttributes = [.foregroundColor: UIColor.white, .font: UIFont(name: "Puzzle-Tale-Pixel-BG", size: 35)!]
         appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
 
         navigationItem.title = "Pokedex"

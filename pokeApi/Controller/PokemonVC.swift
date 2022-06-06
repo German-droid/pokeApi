@@ -108,12 +108,14 @@ class PokemonVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                         
                         // DetailedMovements entity
                         let newMovement = DetailedMovements(context: managedContext)
+                        newMovement.originalName = detailedMovement.name
                         newMovement.name = esNombreAtq
                         newMovement.power = Int64(detailedMovement.power ?? 0)
                         newMovement.accuracy = Int64(detailedMovement.accuracy ?? 0)
                         newMovement.pp = Int64(detailedMovement.pp)
                         newMovement.type = detailedMovement.type.name
                         newMovement.damageClass = detailedMovement.damage_class.name
+                        
                         
                         arrMovements[index] = newMovement
                         

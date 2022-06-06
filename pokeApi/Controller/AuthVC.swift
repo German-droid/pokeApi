@@ -202,6 +202,12 @@ class AuthVC: UIViewController {
             return false
         }
         
+        guard username.count <= 12 else {
+            CustomToast.show(message: "Máximo 12 carácteres en el nombre de usuario.", bgColor: .black, textColor: .white, labelFont: UIFont(name: "Puzzle-Tale-Pixel-BG", size: 25) ?? .boldSystemFont(ofSize: 25), showIn: .top, controller: self)
+            
+            return false
+        }
+        
         return true
     }
     

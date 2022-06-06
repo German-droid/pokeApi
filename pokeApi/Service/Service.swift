@@ -41,8 +41,10 @@ class Service {
                         //print(detailedPokemon.sprites.other.officialSprite.url)
                         self.fetchImagePokemon(imageUrl: detailedPokemon.sprites.url) { imageData in
                             
-                            self.fetchArtWorkPokemon(artWorkUrl: detailedPokemon.sprites.other.officialSprite.url) { artworkData in
-                                self.addToPersistent(pokemon: detailedPokemon, imageData: imageData, artworkData: artworkData)
+                            self.fetchBackImagePokemon(imageUrl: detailedPokemon.sprites.backUrl) { backImageData in
+                                self.fetchArtWorkPokemon(artWorkUrl: detailedPokemon.sprites.other.officialSprite.url) { artworkData in
+                                    self.addToPersistent(pokemon: detailedPokemon, imageData: imageData, backImageData: backImageData, artworkData: artworkData)
+                                }
                             }
                             
                         }
@@ -79,6 +81,20 @@ class Service {
     }
     
     func fetchImagePokemon(imageUrl: String, completion: @escaping (Data) -> ()) {
+        guard let url = URL(string: imageUrl) else {return}
+
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            if let error = error {
+                print("Fallo al obtener la imagen del pokemon con el error: ", error.localizedDescription)
+                return
+            }
+            
+            guard let data = data else { return }
+            completion(data)
+        }.resume()
+    }
+    
+    func fetchBackImagePokemon(imageUrl: String, completion: @escaping (Data) -> ()) {
         guard let url = URL(string: imageUrl) else {return}
 
         URLSession.shared.dataTask(with: url) { data, response, error in
@@ -141,7 +157,7 @@ class Service {
             guard let data = data else { return }
             
             do {
-                let detailedMovement = try JSONDecoder().decode(DetailedMovement.self, from: data)
+                var detailedMovement = try JSONDecoder().decode(DetailedMovement.self, from: data)
                 completion(detailedMovement)
             } catch let error {
                 print("Error al crear el JSON con el error: ", error.localizedDescription)
@@ -152,7 +168,7 @@ class Service {
         
     }
     
-    func addToPersistent(pokemon: DetailedPokemon, imageData: Data, artworkData: Data) {
+    func addToPersistent(pokemon: DetailedPokemon, imageData: Data, backImageData: Data , artworkData: Data) {
         
         // Pokemon entity
         let newPokemon = DetailedPokemons(context: managedContext)
@@ -160,6 +176,7 @@ class Service {
         newPokemon.setValue(pokemon.height, forKey: "height")
         newPokemon.setValue(pokemon.weight, forKey: "weight")
         newPokemon.setValue(imageData, forKey: "sprite")
+        newPokemon.setValue(backImageData, forKey: "backSprite")
         newPokemon.setValue(artworkData, forKey: "detailedSprite")
         newPokemon.setValue(pokemon.id, forKey: "id")
         

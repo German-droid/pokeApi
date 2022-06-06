@@ -15,11 +15,13 @@ class MainController: UITabBarController {
         
         // create instance of view controllers
         
-        
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        let battleViewController = storyBoard.instantiateViewController(withIdentifier: "SetUpVC") as! SetUpVC
+
         
         let pokedexVC = UINavigationController(rootViewController: PokedexVC())
         let teamVC = UINavigationController(rootViewController: TeamVC())
-        let battleVC = UINavigationController(rootViewController: BattleVC())
+        let battleVC = UINavigationController(rootViewController: battleViewController)
         
         
         
